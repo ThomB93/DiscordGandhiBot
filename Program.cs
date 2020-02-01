@@ -35,6 +35,7 @@ namespace DiscordGandhiBot
 
                 // this is where we get the Token value from the configuration file, and start the bot
                 string token = ConfigurationManager.AppSettings["token"].ToString();
+
                 await client.LoginAsync(TokenType.Bot, token);
                 await client.StartAsync();
 

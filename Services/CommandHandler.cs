@@ -78,7 +78,7 @@ namespace DiscordGandhiBot.Services
             // if a command isn't found, log that info to console and exit this method
             if (!command.IsSpecified)
             {
-                System.Console.WriteLine($"Command failed to execute for [] <-> []!");
+                System.Console.WriteLine($"Command failed to execute for " + command + " <-> []!");
                 return;
             }
 
@@ -86,13 +86,13 @@ namespace DiscordGandhiBot.Services
             // log success to the console and exit this method
             if (result.IsSuccess)
             {
-                System.Console.WriteLine($"Command [] executed for -> []");
+                System.Console.WriteLine($"Command " + command + " executed for -> []");
                 return;
             }
 
 
             // failure scenario, let's let the user know
-            await context.Channel.SendMessageAsync($"Sorry, ... something went wrong -> []!");
+            await context.Channel.SendMessageAsync($"Sorry, ... something went wrong -> " + command);
         }
     }
 }

@@ -24,17 +24,29 @@ namespace DiscordGandhiBot.Modules
 
             // get user info from the Context
             var users = Context.Guild.Users;
+            string mention = string.Empty;
+            var embed = new EmbedBuilder();
 
             foreach (var item in users)
             {
-                mentions.Add(item.Mention);
+                if(item.Username == user)
+                {
+                    mention = item.Mention;
+                    sb.AppendLine(mention + " has been nuked!");
+
+                    break;
+                }
             }
-            Random rand = new Random();
-            // build out the reply
-            sb.AppendLine("@" + user + " has been nuked!");
+
+            if(mention == string.Empty)
+            {
+                sb.AppendLine("User does not exist.");
+                return;
+            }
 
             // send simple string reply
-            await ReplyAsync(sb.ToString());
+            await ReplyAsync(sb.ToString(), false);
+            await Context.Channel.SendFileAsync(@"C:\Users\thomb\Documents\VSStudio2019\DiscordGandhiBot\Resources\nuke.gif");
         }
     }
 }
