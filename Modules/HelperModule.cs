@@ -24,7 +24,9 @@ namespace DiscordGandhiBot.Modules
             sb.AppendLine();
             sb.AppendLine("------------------------------------");
             //Add new commands here
-            sb.AppendLine("!nuke");
+            sb.AppendLine("?nuke");
+            sb.AppendLine("?pizzatime");
+            sb.AppendLine("?anime");
 
             var embed = new EmbedBuilder
             {
@@ -40,8 +42,18 @@ namespace DiscordGandhiBot.Modules
             {
                 case "nuke":
                     embed.WithColor(randomColor)
-                         .WithTitle("!nuke [username]")
+                         .WithTitle("?nuke [username]")
                          .WithDescription("Nukes the user passed in as a parameter (Sends a @mention). Must be a valid username.");
+                    break;
+                case "pizzatime":
+                    embed.WithColor(randomColor)
+                        .WithTitle("?pizzatime [username] (optional)")
+                        .WithDescription("IT'S PIZZA TIME!");
+                    break;
+                case "anime":
+                    embed.WithColor(randomColor)
+                        .WithTitle("?anime [searchTerm] (optional)")
+                        .WithDescription("Displays general information about an anime based on search term. ");
                     break;
                 default:
                     break;

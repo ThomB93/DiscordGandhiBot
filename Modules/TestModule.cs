@@ -12,8 +12,8 @@ namespace DiscordGandhiBot.Modules
 {
     public class TestModule : ModuleBase<SocketCommandContext>
     {
-        [Command("test")]
-        public async Task TestCommand(string searchTerm = "")
+        [Command("anime")]
+        public async Task TestCommand(string searchTerm = "boku no pico")
         {
             // Initialize JikanWrapper
             IJikan jikan = new Jikan(true);

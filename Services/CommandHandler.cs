@@ -58,8 +58,8 @@ namespace DiscordGandhiBot.Services
             var argPos = 0;
 
             // get prefix from the configuration file
-            string prefixFromConfig = ConfigurationManager.AppSettings["prefix"].ToString();
-            char prefix = Char.Parse(prefixFromConfig);
+            //string prefixFromConfig = "!";
+            char prefix = '?';
 
             // determine if the message has a valid prefix, and adjust argPos based on prefix
             if (!(message.HasMentionPrefix(_client.CurrentUser, ref argPos) || message.HasCharPrefix(prefix, ref argPos)))
